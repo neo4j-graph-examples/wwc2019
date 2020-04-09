@@ -1,0 +1,32 @@
+:name: wwc2019
+:long_name: Women's World Cup 2019
+:description: Explore the data behind the Women's World Cup with our World Cup Graph.
+:icon: 
+:logo: 
+:tags: 
+:author: Mark Needham
+:use-load-script: scripts/import.cql
+:use-dump-file: 
+:use-plugin: apoc
+:target-db-version: any
+:bloom-perspective: 
+:guide: documentation/index.adoc
+:rendered-guide: https://guides.neo4j.com/sandbox/womens-worldcup/index.html
+:model:
+:model-guide:
+:todo: Create a data model, find associated images/icons
+image::{logo}[]
+
+= {long_name} Graph Example
+
+Description: {description}
+
+TODO: {todo}
+
+=== Setup
+
+This is for version: {target-db-version}
+
+unrendered guide: {guide}
+
+rendered guide available from: {rendered-guide}
