@@ -1,32 +1,71 @@
 :name: wwc2019
-:long_name: Women's World Cup 2019
-:description: Explore the data behind the Women's World Cup with our World Cup Graph.
+:long-name: Women's World Cup 2019
+:description: Explore the data behind the Women's World Cup with our World Cup Graph
 :icon: 
-:logo: 
-:tags: 
+:logo: documentation/img/wwc2019-logo.png
+:tags: example-data,dataset,worldcup-data,womens-world-cup,sports
 :author: Mark Needham
-:use-load-script: scripts/import.cql
-:use-dump-file: 
+:use-load-script: scripts/import.cypher
+:data: import/*.json
+:use-dump-file: data/wwc2019-40.dump
 :use-plugin: apoc
-:target-db-version: any
-:bloom-perspective: 
-:guide: documentation/index.adoc
+:target-db-version: 3.5,4.0
+:bloom-perspective: bloom/wwc2019.bloom-perspective
+:guide: documentation/wwc2019.neo4j-browser-guide
 :rendered-guide: https://guides.neo4j.com/sandbox/womens-worldcup/index.html
-:model:
+:model: documentation/img/model.png
+:example: documentation/img/example.png
+
+:query: MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team) +
+RETURN team.name as team +
+
+:param-name: year
+:param-value: 2019
+:result-column: team
+:expected-result: Jamaica
+
 :model-guide:
-:todo: Create a data model, find associated images/icons
-image::{logo}[]
+:todo: 
+image::{logo}[width=100]
 
-= {long_name} Graph Example
+== {long-name} Graph Example
 
-Description: {description}
+Description: _{description}_
 
-TODO: {todo}
+.Model
+image::{model}[]
+
+.Example
+image::{example}[width=600]
+
+.Example Query:
+[source,cypher,subs=attributes]
+----
+{query}
+----
+
+=== Articles
+
+There are a few articles exploring and using this dataset.
+
+* https://medium.com/neo4j/now-available-womens-world-cup-2019-graph-cf3bd9e44e22[Blog: Women’s World Cup 2019 Graph^]
+* https://medium.com/neo4j/gr-r-andstack-the-2nd-r-stands-for-regraph-fca60f005e56[Blog: Using WWC2019 with GRANDstack and ReGraph^]
 
 === Setup
 
-This is for version: {target-db-version}
+This is for Neo4j version: `{target-db-version}`
 
-unrendered guide: {guide}
+Rendered guide available from: `:play wwc2019` 
+// or `:play {rendered-guide}``
 
-rendered guide available from: {rendered-guide}
+Unrendered guide: link:{guide}[]
+
+Data files: `{use-dump-file}`
+
+=== Code Examples
+
+* link:code/javascript/example.js[JavaScript]
+* link:code/java/Example.java[Java]
+* link:code/csharp/Example.cs[C#]
+* link:code/python/example.py[Python]
+* link:code/go/example.go[Go]
