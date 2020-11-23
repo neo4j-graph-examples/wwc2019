@@ -1,16 +1,15 @@
 {
     "name": "wwc2019",
     "description":"Explore the data behind the Women's World Cup with our World Cup Graph",
+    "scriptFile":"scripts/import.cypher",
     "install": [
       {
           "dumpFile": "data/wwc2019-35.dump",
-          "targetNeo4jVersion":"3.5",
-          "scriptFile":"scripts/import.cypher"
+          "targetNeo4jVersion":"3.5"
       },
       {
           "dumpFile": "data/wwc2019-40.dump",
-          "targetNeo4jVersion": "^4.0",
-          "scriptFile":"scripts/import.cypher"
+          "targetNeo4jVersion": "^4.0"
       }
   ]
 }
