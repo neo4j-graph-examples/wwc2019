@@ -5,7 +5,7 @@ CREATE CONSTRAINT ON (m:Match) ASSERT m.id IS UNIQUE;
 CREATE CONSTRAINT ON (s:Squad) ASSERT s.id IS UNIQUE;
 CREATE INDEX ON :Tournament(shortName);
 
-CALL apoc.load.json("../data/tournaments.json")
+CALL apoc.load.json("file:///tournaments.json")
 YIELD value
 MERGE (tourn:Tournament {id: value.id})
 SET tourn.shortName = value.shortName, tourn.name = value.name, tourn.year = value.year
@@ -13,7 +13,7 @@ FOREACH(team in value.teams |
   MERGE (t:Team {id: team.id}) SET t.name = team.team
   MERGE (t)-[:PARTICIPATED_IN]->(tourn));
 
-CALL apoc.load.json("../data/squads.json")
+CALL apoc.load.json("file:///squads.json")
 YIELD value
 MATCH (team:Team {id: value.teamId})
 MATCH (tourn:Tournament {shortName: value.shortName})
@@ -28,7 +28,7 @@ WITH *
 CALL apoc.do.when(player.role = "0", 'MERGE (p)-[:COACH_FOR]->(squad)', 'MERGE (p)-[:IN_SQUAD]->(squad)', {p:p, squad:squad}) YIELD value AS ignore
 RETURN count(*);
 
-CALL apoc.load.json("../data/matches.json")
+CALL apoc.load.json("file:///matches.json")
 YIELD value
 MATCH (tourn:Tournament {id: value.IdSeason})
 MATCH (home:Team {id: value.HomeTeam.IdTeam})
