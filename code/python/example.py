@@ -8,7 +8,7 @@ driver = GraphDatabase.driver(
   auth=basic_auth("<USERNAME>", "<PASSWORD>"))
 
 cypher_query = '''
-MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team)
+MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team) 
 RETURN team.name as team
 '''
 
