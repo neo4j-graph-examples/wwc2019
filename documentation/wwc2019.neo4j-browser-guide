@@ -15,7 +15,7 @@ Run the following query:
 
 [source,cypher]
 ----
-CALL db.schema()
+call db.schema.visualization()
 ----
 
 == Who's playing in World Cup 2019?
