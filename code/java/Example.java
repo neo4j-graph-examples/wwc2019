@@ -17,7 +17,7 @@ public class Example {
     try (Session session = driver.session(SessionConfig.forDatabase("neo4j"))) {
 
       String cypherQuery =
-        "MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team) " +
+        "MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team)" +
         "RETURN team.name as team";
 
       var result = session.readTransaction(

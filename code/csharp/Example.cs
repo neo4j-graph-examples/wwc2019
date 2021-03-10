@@ -18,7 +18,7 @@ namespace dotnet {
 
     var cypherQuery =
       @"
-      MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team) 
+      MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team)
       RETURN team.name as team
       ";
 

@@ -7,7 +7,7 @@ const driver = neo4j.driver('bolt://<HOST>:<BOLTPORT>',
 
 const query =
   `
-  MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team) 
+  MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team)
   RETURN team.name as team
   `;
 
