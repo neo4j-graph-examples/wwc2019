@@ -30,7 +30,7 @@ func runQuery(uri, database, username, password string) (result []string, err er
 	results, err := session.ReadTransaction(func(transaction neo4j.Transaction) (interface{}, error) {
 		result, err := transaction.Run(
 			`
-			MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team) 
+			MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team)
 			RETURN team.name as team
 			`, map[string]interface{}{
 				"year": "2019",
