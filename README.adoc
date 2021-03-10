@@ -17,14 +17,6 @@
 :model: documentation/img/model.png
 :example: documentation/img/example.png
 
-:query: MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team) +
-RETURN team.name as team +
-
-:param-name: year
-:param-value: 2019
-:result-column: team
-:expected-result: Jamaica
-
 :todo: false
 image::{icon}[width=100]
 
@@ -43,9 +35,10 @@ image::{model}[]
 image::{example}[width=600]
 
 .Example Query:
-[source,cypher,subs=attributes]
+[source,cypher,role=query-example,param-name=year,param-value=2019,result-column=team,expected-result=Jamaica]
 ----
-{query}
+MATCH (t:Tournament {year: $year})<-[:PARTICIPATED_IN]-(team)
+RETURN team.name as team
 ----
 
 === Setup
