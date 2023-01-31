@@ -2,18 +2,26 @@
     "name": "wwc2019",
     "description":"Explore the data behind the Women's World Cup with our World Cup Graph",
     "dbms": [
-      {
-          "dumpFile": "data/wwc2019-35.dump",
-          "targetNeo4jVersion":"3.5"
-      },
-      {
-          "dumpFile": "data/wwc2019-40.dump",
-          "targetNeo4jVersion": "4.0.* - 4.2.*"
-      },
-      {
-          "dumpFile": "data/wwc2019-43.dump",
-          "targetNeo4jVersion": "^4.3"
-      },
+        {
+            "dumpFile": "data/wwc2019-35.dump",
+            "targetNeo4jVersion":">=3.5.0 <4.0.0",
+            "plugins": ["apoc"]
+        },
+        {
+            "dumpFile": "data/wwc2019-40.dump",
+            "targetNeo4jVersion": ">=4.0.0 <4.3.0",
+            "plugins": ["apoc"]
+        },
+        {
+            "dumpFile": "data/wwc2019-43.dump",
+            "targetNeo4jVersion": ">=4.3.0 <5.0.0",
+            "plugins": ["apoc"]
+        },
+        {
+            "dumpFile": "data/wwc2019-50.dump",
+            "targetNeo4jVersion": ">=5.0.0 <6.0.0",
+            "plugins": ["apoc"]
+        },
       {
           "scriptFile":"scripts/wwc2019.cypher",
           "targetNeo4jVersion": "^4.0"
